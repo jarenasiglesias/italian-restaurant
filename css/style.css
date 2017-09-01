@@ -92,12 +92,24 @@ hr{
 	opacity: 
 }
 
+#menuTitle{
+	margin-bottom: -40px;
+}
+
 .bgHead{
 	background-image: url("../images/backgroundcontent.jpg");
 	background-size: cover;
 	position: relative;
 	overflow-x: hidden;
 	height: 70px;
+	margin-bottom: 20px;
+}
+
+#booking{
+	width: 20%;
+	margin-top: 5%;
+	margin-right: 40%;
+	margin-left: 40%;
 }
 
 #linkedin{
@@ -146,6 +158,12 @@ hr{
 	background-image: url("../images/chef.jpg");
 }
 
+.form-style{
+	width: 80%;
+	margin-right: 10%;
+	margin-left: 10%;	
+}
+
 footer{
 	text-align:center;
 	font-size: 16px;
@@ -156,3 +174,4 @@ footer{
     bottom: 0;
     position:fixed;
 }
+ 
