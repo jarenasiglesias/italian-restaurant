@@ -33,13 +33,27 @@ function foodCont(cat) {
             var price = foodObj[i].price;
             var foodDbList;
             foodList = document.createElement('li');
+            foodList.id = name.replace(" ","").replace(" ","");
             foodList.innerText = name + ' ' + price + '€';
             ulFood.appendChild(foodList);
+            var css = '#' + foodList.id + ':hover{ font-size: 25px; background-image: url(' + photo + '); height: 110px; padding-top: 35px; border-radius:20px; background-size: cover; cursor: pointer;';
+            var style = document.createElement('style');
+
+            if (style.styleSheet) {
+                style.styleSheet.cssText = css;
+            } else {
+                style.appendChild(document.createTextNode(css));
+            }
+
+            document.getElementsByTagName('head')[0].appendChild(style);
         }
         var bar;
         bar = document.createElement('hr');
         ulFood.appendChild(bar);
+
+
     });
+
 }
 
 
@@ -78,11 +92,23 @@ function foodCont2(cat) {
             var price = foodObj[i].price;
             var foodDbList;
             foodList = document.createElement('li');
+            foodList.id = name.replace(" ","").replace(" ","");
             foodList.innerText = name + ' ' + price + '€';
             ulFood.appendChild(foodList);
+            var css = '#' + foodList.id + ':hover{ font-size: 20px; background-image: url(' + photo + '); height: 110px; padding-top: 35px; border-radius:20px; background-size: cover; cursor: pointer;';
+            var style = document.createElement('style');
+
+            if (style.styleSheet) {
+                style.styleSheet.cssText = css;
+            } else {
+                style.appendChild(document.createTextNode(css));
+            }
+
+            document.getElementsByTagName('head')[0].appendChild(style);
         }
         var bar;
         bar = document.createElement('hr');
         ulFood.appendChild(bar);
+
     });
 }
