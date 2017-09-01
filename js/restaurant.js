@@ -1,4 +1,6 @@
 var total = 0;
+var reset = document.getElementById('restart');
+reset.addEventListener('click', restart, false);
 
 (function categories() {
     var addCategory = []; //crea variable con array para almacenar cuantas marcas de cpu existen en la base de datos
@@ -124,4 +126,8 @@ function foodCont2(cat) {
         bar = document.createElement('hr');
         ulFood.appendChild(bar);
     });
+}
+
+function restart(){
+    location.reload(true);
 }
