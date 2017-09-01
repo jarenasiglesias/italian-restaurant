@@ -111,7 +111,7 @@ app.get('/drink/vino', function (req, res) {
 });
 
 //busca cerveza
-app.get('/drink/tinto', function (req, res) {
+app.get('/drink/cerveza', function (req, res) {
   console.log("Cerveza")
   DrinkModel.find({"category": 'cerveza'},function(err,p){
     if (err) return console.error(err);

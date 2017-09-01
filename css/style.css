@@ -16,8 +16,36 @@ h2{
 	color: #FFF;
 }
 
+h3{
+	margin-top: 20px;
+	text-align: center;
+	color:#FFF;
+	font-family: initial;
+	font-size: 30px;
+}
+
+hr{
+	margin-left:-40px;
+	background-color: grey;
+	height: 1px;
+}
+
+#contList>li {
+	margin-left: -35px; 
+	list-style-type: none;
+	text-align: center;
+}
+
 #background{
 	background: url("../images/background.jpg") no-repeat center center;
+	background-size: cover;
+	position: relative;
+	background-attachment: fixed;
+	overflow-x: hidden;
+	}
+
+#backgroundContent{
+	background: url("../images/backgroundcontent.jpg") no-repeat center center;
 	background-size: cover;
 	position: relative;
 	background-attachment: fixed;
@@ -39,6 +67,83 @@ h2{
 	color: grey;
 	transition: inherit;
 	transition-duration: 0.6s;
+}
+
+#desc{
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 20px;
+	margin-left: 300px;
+	margin-right: 300px;
+	margin-top: 70px;
+	color:#FFF;
+	font-size: bold;
+	opacity: 
+}
+
+#who, #content{
+	display: block;
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 20px;
+	margin-top: 70px;
+	color:#FFF;
+	font-size: bold;
+	opacity: 
+}
+
+.bgHead{
+	background-image: url("../images/backgroundcontent.jpg");
+	background-size: cover;
+	position: relative;
+	overflow-x: hidden;
+	height: 70px;
+}
+
+#linkedin{
+	background-image: url("../images/li.png");
+}
+
+#facebook{
+	background-image: url("../images/fb.png");
+}
+
+#twitter{
+	background-image: url("../images/tw.png");
+}
+
+.headButton{
+	position: relative;
+	margin-top: 20px;
+	height: 30px;
+	width: 30px;
+	border-radius: 2px;
+	margin-right: 5px;
+}
+
+.nav-link:hover{
+	text-decoration: underline;
+}
+
+.photo{
+	background-size: cover;
+	position: relative;
+	overflow-x: hidden;
+	background-position: 50% 50%;
+	border-radius: 20px;
+	margin-top: 40px;
+}
+
+#photo1{
+	background-image: url("../images/giovanni.jpg");
+}
+
+#photo2{
+	background-image: url("../images/gave.jpg");
+}
+
+#photo3{
+	background-image: url("../images/chef.jpg");
 }
 
 footer{
