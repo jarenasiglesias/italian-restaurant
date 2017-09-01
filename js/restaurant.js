@@ -1,3 +1,5 @@
+var total = 0;
+
 (function categories() {
     var addCategory = []; //crea variable con array para almacenar cuantas marcas de cpu existen en la base de datos
     $.get('http://localhost:3000/food', function getType(response) {
@@ -33,9 +35,11 @@ function foodCont(cat) {
             var price = foodObj[i].price;
             var foodDbList;
             foodList = document.createElement('li');
-            foodList.id = name.replace(" ","").replace(" ","");
+            foodList.id = name.replace(" ", "").replace(" ", "");
+            foodList.value = price;
             foodList.innerText = name + ' ' + price + '€';
             ulFood.appendChild(foodList);
+            foodList.addEventListener('click', calculator, false);
             var css = '#' + foodList.id + ':hover{ font-size: 25px; background-image: url(' + photo + '); height: 110px; padding-top: 35px; border-radius:20px; background-size: cover; cursor: pointer;';
             var style = document.createElement('style');
 
@@ -50,12 +54,22 @@ function foodCont(cat) {
         var bar;
         bar = document.createElement('hr');
         ulFood.appendChild(bar);
-
-
     });
-
 }
 
+function calculator() {
+    var calculator = document.getElementById('calculator');
+    calculator.style.display = 'block';
+    calculator.appendChild(this);
+    total = total + this.value;
+    var sum = document.getElementById('sum');
+    sum.innerHTML = "";
+    var result = document.createElement('h2');
+    result.innerText = 'Total: ' + total + '€';
+    result.id = total;
+    console.log(result);
+    sum.appendChild(result);
+}
 
 (function categories2() {
     var addCategory = []; //crea variable con array para almacenar cuantas marcas de cpu existen en la base de datos
@@ -92,7 +106,7 @@ function foodCont2(cat) {
             var price = foodObj[i].price;
             var foodDbList;
             foodList = document.createElement('li');
-            foodList.id = name.replace(" ","").replace(" ","");
+            foodList.id = name.replace(" ", "").replace(" ", "");
             foodList.innerText = name + ' ' + price + '€';
             ulFood.appendChild(foodList);
             var css = '#' + foodList.id + ':hover{ font-size: 20px; background-image: url(' + photo + '); height: 110px; padding-top: 35px; border-radius:20px; background-size: cover; cursor: pointer;';
@@ -109,6 +123,5 @@ function foodCont2(cat) {
         var bar;
         bar = document.createElement('hr');
         ulFood.appendChild(bar);
-
     });
 }
