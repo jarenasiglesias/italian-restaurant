@@ -1,15 +1,16 @@
 var total = 0;
+var cart = [];
 var reset = document.getElementById('restart');
 reset.addEventListener('click', restart, false);
 
 (function categories() {
-    var addCategory = []; //crea variable con array para almacenar cuantas marcas de cpu existen en la base de datos
+    var addCategory = []; 
     $.get('http://localhost:3000/food', function getType(response) {
         var foodObj = response;
-        for (var i = 0; i < foodObj.length; i++) { //for que recorre el array de cpus existentes en la bbdd
-            var category = foodObj[i].category; //recogemos el valor de las marcas existentes
+        for (var i = 0; i < foodObj.length; i++) { 
+            var category = foodObj[i].category; 
 
-            if (!addCategory.includes(category)) { //si la marca de cpu no se encuentra dentro del array lo incluye dentro, así podemos crear luego dos botones para cada marca
+            if (!addCategory.includes(category)) { 
                 addCategory.push(category);
             }
         }
@@ -69,18 +70,18 @@ function calculator() {
     var result = document.createElement('h2');
     result.innerText = 'Total: ' + total + '€';
     result.id = total;
-    console.log(result);
+    console.log(cart);
     sum.appendChild(result);
 }
 
 (function categories2() {
-    var addCategory = []; //crea variable con array para almacenar cuantas marcas de cpu existen en la base de datos
+    var addCategory = []; 
     $.get('http://localhost:3000/drink', function getType(response) {
         var foodObj = response;
-        for (var i = 0; i < foodObj.length; i++) { //for que recorre el array de cpus existentes en la bbdd
-            var category = foodObj[i].category; //recogemos el valor de las marcas existentes
+        for (var i = 0; i < foodObj.length; i++) { 
+            var category = foodObj[i].category; 
 
-            if (!addCategory.includes(category)) { //si la marca de cpu no se encuentra dentro del array lo incluye dentro, así podemos crear luego dos botones para cada marca
+            if (!addCategory.includes(category)) { 
                 addCategory.push(category);
             }
         }
