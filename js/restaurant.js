@@ -98,7 +98,7 @@ function divCalculator() {
     var ulFood = document.getElementById('calcUlist');
     var name = this.id.replace("Content", "");
     var photo = this.photo;
-    var price = this.getAttribute("price");
+    var price = parseFloat(this.getAttribute("price"));
     var extension = 'Calc';
 
     var calcList = printList(name, price, ulFood, photo, extension);
@@ -113,7 +113,8 @@ function divCalculator() {
 
     calcList.appendChild(numbox);
     var subprice;
-    subprice = calculatorDiv(numbox, calcList);
+    
+    subprice = calculatorDiv(numbox, calcList, price);
 }
 
 function noRepeatFood(calcList, ulFood) { //controla que en la parte de la lista de la izquierda no se repitan los mismo elementos
@@ -125,22 +126,21 @@ function noRepeatFood(calcList, ulFood) { //controla que en la parte de la lista
     }
 }
 
-function calculatorDiv(numbox, calcList) {
+function calculatorDiv(numbox, calcList, price) {
     var result;
-    var price = parseFloat(calcList.getAttribute("price"));
 
     result = document.createElement('div');
     result.id = calcList.id + 'Id';
     calcList.appendChild(result);
-    
+
     subOperation(result, numbox, price)
-    
+
     $('#' + numbox.id).bind('keyup mouseup', function() {
         subOperation(result, numbox, price)
     })
 }
 
-function subOperation(result, numbox, price){
+function subOperation(result, numbox, price) {
     var mult;
     $('#' + result.id).empty();
     mult = document.createElement('p');
@@ -153,22 +153,22 @@ function subOperation(result, numbox, price){
 }
 
 function totalOperation() {
-    
+    var totalSum = document.getElementById("totalSum");
+    var calculator = document.getElementById("calculator");
+    var subTotal = document.getElementsByClassName("total");
     total = 0;
-    for (var i = 0; i < document.getElementsByClassName("total").length; i++) {
-        total = total + document.getElementsByClassName("total")[i].value;
-        var totalSum = document.getElementById("totalSum");
-        var calculator = document.getElementById("calculator");
+    for (var i = 0; i < subTotal.length; i++) {
+        total = total + subTotal[i].value;
         totalSum.innerText = total + ' €';
         calculator.appendChild(totalSum);
     }
 }
 
-
 function restart() {
+    var totalSum = document.getElementById("totalSum");
+    var calculator = document.getElementById("calculator");
     $('#calcUlist').empty();
-    $('#sum').empty();
     var totalNumber = document.getElementById('total');
-    totalNumber.outerHTML = "";
-    delete totalNumber;
+    totalSum.innerText = 0 + ' €';
+    calculator.appendChild(totalSum);
 }
