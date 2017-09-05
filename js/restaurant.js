@@ -1,7 +1,6 @@
-var mult = 0;
-var total = 0;
 var reset = document.getElementById('restart');
 reset.addEventListener('click', restart, false);
+var total = 0;
 
 (function products() {
     var addCategory = [];
@@ -74,7 +73,7 @@ function printList(name, price, ulFood, photo, extension) { //crea la lista de p
     foodList.innerText = name + ' ' + price + '€';
 
     if (foodList.id.indexOf('Content') !== -1) { //controla que el id contenga en su string 'Content'
-        foodList.addEventListener('click', calculator, false);
+        foodList.addEventListener('click', divCalculator, false);
         listStyle(name, photo);
         ulFood.appendChild(foodList);
     }
@@ -93,33 +92,28 @@ function listStyle(name, photo) { //añade estilo
     document.getElementsByTagName('head')[0].appendChild(style);
 }
 
-function calculator() {
+function divCalculator() {
     var calculator = document.getElementById('calculator');
     calculator.style.display = 'block';
-    var sum = document.getElementById('sum');
     var ulFood = document.getElementById('calcUlist');
-
     var name = this.id.replace("Content", "");
     var photo = this.photo;
     var price = this.getAttribute("price");
     var extension = 'Calc';
-    
+
     var calcList = printList(name, price, ulFood, photo, extension);
 
-    noRepeatFood(calcList, ulFood)
+    noRepeatFood(calcList, ulFood);
 
     var numbox = document.createElement('input');
     numbox.id = this.id + 'Box';
     numbox.type = 'number';
+    numbox.value = 1;
+    numbox.min = 1;
+
     calcList.appendChild(numbox);
-    $('#' + numbox.id).bind('keyup mouseup', function() {
-        $('#sum').empty();
-        total = numbox.value * calcList.getAttribute("price");
-        var result;
-        result = document.createElement('h2');
-        result.innerText = total + ' €';
-        sum.appendChild(result);
-    });
+    var subprice;
+    subprice = calculatorDiv(numbox, calcList);
 }
 
 function noRepeatFood(calcList, ulFood) { //controla que en la parte de la lista de la izquierda no se repitan los mismo elementos
@@ -130,6 +124,46 @@ function noRepeatFood(calcList, ulFood) { //controla que en la parte de la lista
         ulFood.appendChild(calcList);
     }
 }
+
+function calculatorDiv(numbox, calcList) {
+    var result;
+    var price = parseFloat(calcList.getAttribute("price"));
+
+    result = document.createElement('div');
+    result.id = calcList.id + 'Id';
+    calcList.appendChild(result);
+    
+    subOperation(result, numbox, price)
+    
+    $('#' + numbox.id).bind('keyup mouseup', function() {
+        subOperation(result, numbox, price)
+    })
+}
+
+function subOperation(result, numbox, price){
+    var mult;
+    $('#' + result.id).empty();
+    mult = document.createElement('p');
+    mult.className += "total";
+    mult.value = numbox.value * price;
+    mult.innerText = mult.value;
+    result.appendChild(mult);
+
+    totalOperation();
+}
+
+function totalOperation() {
+    
+    total = 0;
+    for (var i = 0; i < document.getElementsByClassName("total").length; i++) {
+        total = total + document.getElementsByClassName("total")[i].value;
+        var totalSum = document.getElementById("totalSum");
+        var calculator = document.getElementById("calculator");
+        totalSum.innerText = total + ' €';
+        calculator.appendChild(totalSum);
+    }
+}
+
 
 function restart() {
     $('#calcUlist').empty();
