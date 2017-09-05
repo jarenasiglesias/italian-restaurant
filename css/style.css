@@ -30,7 +30,7 @@ hr{
 	height: 1px;
 }
 
-#contList>li {
+.categories>*>li {
 	margin-left: -35px; 
 	list-style-type: none;
 	text-align: center;
@@ -98,17 +98,19 @@ hr{
 	background-color: rgba(0, 0, 0, 0.5);;
 	border-radius: 20px;
 	padding: 10px; 
-	width: 170px;
-	margin-top: 100px;
+	width: 20%;
+	margin-top: 50px;
 	margin-left: 20px;
-	position: fixed;
+	margin-bottom: 100px;
+	position: absolute;
 	color: #FFF;
 	list-style-type: none;
 	z-index: 20;	
 }
 
 #restart{
-	margin-left: 13%;
+	margin-left: 21%;
+	padding: 1px;
 }
 
 #restart:hover{
@@ -122,6 +124,16 @@ hr{
 
 #calculator>li{
 	margin-bottom: 10px;
+}
+
+#numBox{
+	width: 90%;
+	border-radius: 20px;
+}
+
+#addButton{
+	margin-top: 5px;
+	border-radius: 20px;
 }
 
 .bgHead{
@@ -201,5 +213,6 @@ footer{
     margin-bottom: -15px;
     bottom: 0;
     position:fixed;
+    z-index: 823452374574;
 }
  
