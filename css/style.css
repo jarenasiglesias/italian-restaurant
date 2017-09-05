@@ -104,13 +104,13 @@ hr{
 	margin-bottom: 100px;
 	position: absolute;
 	color: #FFF;
-	list-style-type: none;
 	z-index: 20;	
 }
 
 #restart{
-	margin-left: 21%;
+	margin-left: 33%;
 	padding: 1px;
+	margin-bottom: 5%;
 }
 
 #restart:hover{
@@ -122,17 +122,13 @@ hr{
 	text-decoration: underline;
 }
 
-#calculator>li{
+#calcUlist>li{
 	margin-bottom: 10px;
+	list-style-type: none;
 }
 
-#numBox{
-	width: 90%;
-	border-radius: 20px;
-}
-
-#addButton{
-	margin-top: 5px;
+#calcUlist>li>input{
+	width: 80%;
 	border-radius: 20px;
 }
 

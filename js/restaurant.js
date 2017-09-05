@@ -26,7 +26,7 @@ function categories(foodObj, type, addCategory) {
         }
     }
     for (var i = 0; i < addCategory.length; i++) {
-        foodCont(type, addCategory[i])
+        foodCont(type, addCategory[i]);
     }
 }
 
@@ -93,6 +93,7 @@ function listStyle(name, photo) { //añade estilo
 }
 
 function divCalculator() {
+
     var calculator = document.getElementById('calculator');
     calculator.style.display = 'block';
     var ulFood = document.getElementById('calcUlist');
@@ -113,8 +114,9 @@ function divCalculator() {
 
     calcList.appendChild(numbox);
     var subprice;
-    
+
     subprice = calculatorDiv(numbox, calcList, price);
+
 }
 
 function noRepeatFood(calcList, ulFood) { //controla que en la parte de la lista de la izquierda no se repitan los mismo elementos
@@ -133,20 +135,20 @@ function calculatorDiv(numbox, calcList, price) {
     result.id = calcList.id + 'Id';
     calcList.appendChild(result);
 
-    subOperation(result, numbox, price)
+    subOperation(result, numbox, price);
 
     $('#' + numbox.id).bind('keyup mouseup', function() {
-        subOperation(result, numbox, price)
+        subOperation(result, numbox, price);
     })
 }
 
 function subOperation(result, numbox, price) {
     var mult;
-    $('#' + result.id).empty();
     mult = document.createElement('p');
     mult.className += "total";
     mult.value = numbox.value * price;
-    mult.innerText = mult.value;
+    mult.innerText = mult.value + ' €';
+    $('#' + result.id).empty();
     result.appendChild(mult);
 
     totalOperation();
