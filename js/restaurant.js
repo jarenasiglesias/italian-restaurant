@@ -148,7 +148,9 @@ function subOperation(result, numbox, price) {
     mult.className += "total";
     mult.value = numbox.value * price;
     mult.innerText = mult.value + ' €';
-    $('#' + result.id).empty();
+
+    $(result).empty();
+    console.log(result);
     result.appendChild(mult);
 
     totalOperation();
